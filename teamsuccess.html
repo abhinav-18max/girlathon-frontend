@@ -69,7 +69,7 @@
             </ul>
           </li>-->
           <li><a class="nav-link scrollto" href="index.html#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Register Now</a></li>
+          <!-- <li><a class="getstarted scrollto" href="#about">Register Now</a></li> -->
           <li><a class="getstarted scrollto" href="#about"id="logout">Logout</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -140,8 +140,8 @@
 
                 <div class="col-md-12 text-center">
                     <div class=" test-btn-me" style="display: flex; justify-content:flex-start;">
-                  <button class="btn-sub-me" style="margin-right: 5px" type="submit1">Add Member</button>
-                  <button class="btn-sub-me" type="submit2">Abstract</button>
+                  <!-- <button class="btn-sub-me" style="margin-right: 5px" type="submit1">Add Member</button>
+                  <button class="btn-sub-me" type="submit2">Abstract</button> -->
                 </div>
                 <div id="danger"> Team is full !!!!</div>
                 <div id="absdanger"> You already submitted your idea !!!!</div>
@@ -293,42 +293,42 @@
 
     }
     window.onload = pre;
-    document.querySelector("button[type=submit1]").addEventListener("click", async (e) => {
-      e.preventDefault();
-      const res = await axios.post(
-        "https://doubtful-seal-veil.cyclic.app/api/register/check",
-        { "email": getCookie("user") }
-      );
-      if (res.data.teamcount < 4) {
-        window.location.href = "./team.html";
-      }
-      else {
-        document.getElementById("danger").style.display = "block";
-      }
+  //  document.querySelector("button[type=submit1]").addEventListener("click", async (e) => {
+  //     e.preventDefault();
+  //     const res = await axios.post(
+  //       "https://doubtful-seal-veil.cyclic.app/api/register/check",
+  //       { "email": getCookie("user") }
+  //     );
+  //     if (res.data.teamcount < 4) {
+  //       window.location.href = "./team.html";
+  //     }
+  //     else {
+  //       document.getElementById("danger").style.display = "block";
+  //     }
 
-    })
+  //   })
 
-    document.querySelector("button[type=submit2]").addEventListener("click", async (e) => {
-      e.preventDefault();
-      const res = await axios.post(
-        "https://doubtful-seal-veil.cyclic.app/api/register/check",
-        { "email": getCookie("user") }
-      );
+  //   document.querySelector("button[type=submit2]").addEventListener("click", async (e) => {
+  //     e.preventDefault();
+  //     const res = await axios.post(
+  //       "https://doubtful-seal-veil.cyclic.app/api/register/check",
+  //       { "email": getCookie("user") }
+  //     );
 
-      const teamid = res.data.teamid;
-      const newres = await axios.post("https://doubtful-seal-veil.cyclic.app/api/abstract/issubmitted", { "teamid": teamid })
-      if (newres.status == 230) {
-        document.getElementById("absdanger").style.display = "block";
-      }
-      else if (newres.status == 200) {
-        window.location.href = "./abstract.html";
-      }
-      else {
-        window.location.href = "./login.html";
-      }
+  //     const teamid = res.data.teamid;
+  //     const newres = await axios.post("https://doubtful-seal-veil.cyclic.app/api/abstract/issubmitted", { "teamid": teamid })
+  //     if (newres.status == 230) {
+  //       document.getElementById("absdanger").style.display = "block";
+  //     }
+  //     else if (newres.status == 200) {
+  //       window.location.href = "./abstract.html";
+  //     }
+  //     else {
+  //       window.location.href = "./login.html";
+  //     }
 
 
-    })
+  //   })
   </script>
 
 </body>
